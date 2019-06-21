@@ -5,6 +5,12 @@ Applied Data Analytics and Visualization Course
 
 https://www.kaggle.com/c/titanic/overview/evaluation
 
+# Dataset
+
+Train: https://ericpoitras.github.io/EDPS_7571/dataset/train.htm
+
+Test: https://ericpoitras.github.io/EDPS_7571/dataset/test.htm
+
 # Instructions 
 
 Goal
