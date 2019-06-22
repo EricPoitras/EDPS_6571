@@ -7,9 +7,9 @@ https://www.kaggle.com/c/titanic/overview/evaluation
 
 # Dataset
 
-Train: https://ericpoitras.github.io/EDPS_7571/dataset/train.htm
+Train: https://ericpoitras.github.io/EDPS_7571/dataset/train.txt
 
-Test: https://ericpoitras.github.io/EDPS_7571/dataset/test.htm
+Test: https://ericpoitras.github.io/EDPS_7571/dataset/test.txt
 
 # Instructions 
 
