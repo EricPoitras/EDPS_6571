@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?><process version="9.1.000">
+  <context>
+    <input/>
+    <output/>
+    <macros/>
+  </context>
+  <operator activated="true" class="process" compatibility="9.1.000" expanded="true" name="Process">
+    <parameter key="logverbosity" value="init"/>
+    <parameter key="random_seed" value="2001"/>
+    <parameter key="send_mail" value="never"/>
+    <parameter key="notification_email" value=""/>
+    <parameter key="process_duration_for_mail" value="30"/>
+    <parameter key="encoding" value="SYSTEM"/>
+    <process expanded="true">
+      <operator activated="true" class="subprocess" compatibility="9.1.000" expanded="true" height="103" name="Data PreProcessing" width="90" x="45" y="34">
+        <process expanded="true">
+          <operator activated="true" class="productivity:execute_process" compatibility="9.1.000" expanded="true" height="68" name="Execute Get_Training_Data" width="90" x="45" y="34">
+            <parameter key="process_location" value="Dataset/Get_Training_Data"/>
+            <parameter key="use_input" value="true"/>
+            <parameter key="store_output" value="false"/>
+            <parameter key="propagate_metadata_recursively" value="true"/>
+            <parameter key="cache_process" value="true"/>
+            <list key="macros"/>
+            <parameter key="fail_for_unknown_macros" value="true"/>
+          </operator>
+          <operator activated="true" class="productivity:execute_process" compatibility="9.1.000" expanded="true" height="68" name="Execute Generate_Features" width="90" x="179" y="34">
+            <parameter key="process_location" value="Feature_Engineering/Generate_Features"/>
+            <parameter key="use_input" value="true"/>
+            <parameter key="store_output" value="false"/>
+            <parameter key="propagate_metadata_recursively" value="true"/>
+            <parameter key="cache_process" value="true"/>
+            <list key="macros"/>
+            <parameter key="fail_for_unknown_macros" value="true"/>
+          </operator>
+          <operator activated="true" class="productivity:execute_process" compatibility="9.1.000" expanded="true" height="68" name="Execute Feature_Selection" width="90" x="313" y="34">
+            <parameter key="process_location" value="Feature_Engineering/Feature_Selection"/>
+            <parameter key="use_input" value="true"/>
+            <parameter key="store_output" value="false"/>
+            <parameter key="propagate_metadata_recursively" value="true"/>
+            <parameter key="cache_process" value="true"/>
+            <list key="macros"/>
+            <parameter key="fail_for_unknown_macros" value="true"/>
+          </operator>
+          <operator activated="true" class="productivity:execute_process" compatibility="9.1.000" expanded="true" height="68" name="Execute Feature_Reduction" width="90" x="447" y="34">
+            <parameter key="process_location" value="Feature_Engineering/Feature_Reduction"/>
+            <parameter key="use_input" value="true"/>
+            <parameter key="store_output" value="false"/>
+            <parameter key="propagate_metadata_recursively" value="true"/>
+            <parameter key="cache_process" value="true"/>
+            <list key="macros"/>
+            <parameter key="fail_for_unknown_macros" value="true"/>
+          </operator>
+          <operator activated="true" class="productivity:execute_process" compatibility="9.1.000" expanded="true" height="68" name="Execute Get_Test_Data" width="90" x="45" y="238">
+            <parameter key="process_location" value="Dataset/Get_Test_Data"/>
+            <parameter key="use_input" value="true"/>
+            <parameter key="store_output" value="false"/>
+            <parameter key="propagate_metadata_recursively" value="true"/>
+            <parameter key="cache_process" value="true"/>
+            <list key="macros"/>
+            <parameter key="fail_for_unknown_macros" value="true"/>
+          </operator>
+          <operator activated="true" class="productivity:execute_process" compatibility="9.1.000" expanded="true" height="68" name="Execute Generate_Features (2)" width="90" x="179" y="238">
+            <parameter key="process_location" value="Feature_Engineering/Generate_Features"/>
+            <parameter key="use_input" value="true"/>
+            <parameter key="store_output" value="false"/>
+            <parameter key="propagate_metadata_recursively" value="true"/>
+            <parameter key="cache_process" value="true"/>
+            <list key="macros"/>
+            <parameter key="fail_for_unknown_macros" value="true"/>
+          </operator>
+          <operator activated="true" class="productivity:execute_process" compatibility="9.1.000" expanded="true" height="68" name="Execute Feature_Selection (2)" width="90" x="313" y="238">
+            <parameter key="process_location" value="Feature_Engineering/Feature_Selection"/>
+            <parameter key="use_input" value="true"/>
+            <parameter key="store_output" value="false"/>
+            <parameter key="propagate_metadata_recursively" value="true"/>
+            <parameter key="cache_process" value="true"/>
+            <list key="macros"/>
+            <parameter key="fail_for_unknown_macros" value="true"/>
+          </operator>
+          <operator activated="true" class="productivity:execute_process" compatibility="9.1.000" expanded="true" height="68" name="Execute Feature_Reduction (2)" width="90" x="447" y="238">
+            <parameter key="process_location" value="Feature_Engineering/Feature_Reduction"/>
+            <parameter key="use_input" value="true"/>
+            <parameter key="store_output" value="false"/>
+            <parameter key="propagate_metadata_recursively" value="true"/>
+            <parameter key="cache_process" value="true"/>
+            <list key="macros"/>
+            <parameter key="fail_for_unknown_macros" value="true"/>
+          </operator>
+          <connect from_op="Execute Get_Training_Data" from_port="result 1" to_op="Execute Generate_Features" to_port="input 1"/>
+          <connect from_op="Execute Generate_Features" from_port="result 1" to_op="Execute Feature_Selection" to_port="input 1"/>
+          <connect from_op="Execute Feature_Selection" from_port="result 1" to_op="Execute Feature_Reduction" to_port="input 1"/>
+          <connect from_op="Execute Feature_Reduction" from_port="result 1" to_port="out 1"/>
+          <connect from_op="Execute Get_Test_Data" from_port="result 1" to_op="Execute Generate_Features (2)" to_port="input 1"/>
+          <connect from_op="Execute Generate_Features (2)" from_port="result 1" to_op="Execute Feature_Selection (2)" to_port="input 1"/>
+          <connect from_op="Execute Feature_Selection (2)" from_port="result 1" to_op="Execute Feature_Reduction (2)" to_port="input 1"/>
+          <connect from_op="Execute Feature_Reduction (2)" from_port="result 1" to_port="out 2"/>
+          <portSpacing port="source_in 1" spacing="0"/>
+          <portSpacing port="sink_out 1" spacing="0"/>
+          <portSpacing port="sink_out 2" spacing="0"/>
+          <portSpacing port="sink_out 3" spacing="0"/>
+        </process>
+      </operator>
+      <operator activated="true" class="productivity:execute_process" compatibility="9.1.000" expanded="true" height="103" name="Execute Train_Model" width="90" x="179" y="34">
+        <parameter key="process_location" value="Machine_Learning/Train_Model"/>
+        <parameter key="use_input" value="true"/>
+        <parameter key="store_output" value="false"/>
+        <parameter key="propagate_metadata_recursively" value="true"/>
+        <parameter key="cache_process" value="true"/>
+        <list key="macros"/>
+        <parameter key="fail_for_unknown_macros" value="true"/>
+      </operator>
+      <operator activated="true" class="productivity:execute_process" compatibility="9.1.000" expanded="true" height="82" name="Execute Evaluate_Model" width="90" x="313" y="136">
+        <parameter key="process_location" value="Machine_Learning/Evaluate_Model"/>
+        <parameter key="use_input" value="true"/>
+        <parameter key="store_output" value="false"/>
+        <parameter key="propagate_metadata_recursively" value="true"/>
+        <parameter key="cache_process" value="true"/>
+        <list key="macros"/>
+        <parameter key="fail_for_unknown_macros" value="true"/>
+      </operator>
+      <operator activated="true" class="productivity:execute_process" compatibility="9.1.000" expanded="true" height="82" name="Execute Apply_Model" width="90" x="313" y="34">
+        <parameter key="process_location" value="Machine_Learning/Apply_Model"/>
+        <parameter key="use_input" value="true"/>
+        <parameter key="store_output" value="false"/>
+        <parameter key="propagate_metadata_recursively" value="true"/>
+        <parameter key="cache_process" value="true"/>
+        <list key="macros"/>
+        <parameter key="fail_for_unknown_macros" value="true"/>
+      </operator>
+      <connect from_op="Data PreProcessing" from_port="out 1" to_op="Execute Train_Model" to_port="input 1"/>
+      <connect from_op="Data PreProcessing" from_port="out 2" to_op="Execute Apply_Model" to_port="input 2"/>
+      <connect from_op="Execute Train_Model" from_port="result 1" to_op="Execute Apply_Model" to_port="input 1"/>
+      <connect from_op="Execute Train_Model" from_port="result 2" to_op="Execute Evaluate_Model" to_port="input 1"/>
+      <connect from_op="Execute Train_Model" from_port="result 3" to_op="Execute Evaluate_Model" to_port="input 2"/>
+      <connect from_op="Execute Evaluate_Model" from_port="result 1" to_port="result 3"/>
+      <connect from_op="Execute Evaluate_Model" from_port="result 2" to_port="result 4"/>
+      <connect from_op="Execute Apply_Model" from_port="result 1" to_port="result 1"/>
+      <connect from_op="Execute Apply_Model" from_port="result 2" to_port="result 2"/>
+      <portSpacing port="source_input 1" spacing="0"/>
+      <portSpacing port="sink_result 1" spacing="0"/>
+      <portSpacing port="sink_result 2" spacing="0"/>
+      <portSpacing port="sink_result 3" spacing="0"/>
+      <portSpacing port="sink_result 4" spacing="0"/>
+      <portSpacing port="sink_result 5" spacing="0"/>
+    </process>
+  </operator>
+</process>
