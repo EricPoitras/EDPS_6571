@@ -42,4 +42,5 @@ PassengerId,Survived
  # Setting Up a POST REST API on RapidMiner Server
  https://community.rapidminer.com/discussion/37418/sending-json-data-to-a-rapidminer-service-through-a-post-rest-api-call
  
- 
+ # Example Tableau Visualization
+ https://public.tableau.com/views/TitanicBayes3/TitanicNBSurival?:embed=y&:embed_code_version=3&:loadOrderID=0&:display_count=yes&:origin=viz_share_link
