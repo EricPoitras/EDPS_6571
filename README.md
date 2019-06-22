@@ -38,3 +38,8 @@ PassengerId,Survived
  Etc.
  
  Example: https://ericpoitras.github.io/EDPS_7571/assets/EDPS7571TestData.csv
+ 
+ # Setting Up a POST REST API on RapidMiner Server
+ https://community.rapidminer.com/discussion/37418/sending-json-data-to-a-rapidminer-service-through-a-post-rest-api-call
+ 
+ 
