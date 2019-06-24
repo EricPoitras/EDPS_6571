@@ -9,9 +9,11 @@ Step 2: Apply for an Academic License: https://rapidminer.com/educational-progra
 
 Step 3: Install Code Editor: http://brackets.io/
 
-Step 4: Settup a Few Scripts Using ApexCharts.js and the Bootstrap 4 Libraries
+Step 4: Setup a Few Scripts Using ApexCharts.js and the Bootstrap 4 Libraries
  - Bootstrap: https://getbootstrap.com/docs/4.3/getting-started/introduction/
  - ApexCharts: https://apexcharts.com/docs/installation/
+ 
+ Step 5: Setup a GitHub Repo: https://github.com/join
 
 # Kaggle Titanic Data Mining Competition
 
