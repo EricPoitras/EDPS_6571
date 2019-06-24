@@ -1,7 +1,7 @@
-# EDPS 7571 Foundations of Data Analytics and Visualizations
-Applied Data Analytics and Visualization Course
+# EDPS 7571 Foundations of Applied Data Analytics and Visualization
+This course introduces graduate students to the fundamental theory and techniques in data analytics. The course covers practical examples in relation to the tools and techniques of data mining and visualization, covering the following areas: open-source JavaScript libraries for building interactive dashboards and the RapidMiner data science platform for data preparation, machine learning, and predictive model deployment. At the end of the semester, students are expected to demonstrate their knowledge by developing a static dashboard to showcase their solution to the Kaggle Titanic Data Mining Competition. An emphasis is placed throughout the course on establishing effective data pipelines for training and testing predictive models and assumes no prior programming experience.
 
-# Source Material - Kaggle Titanic Data Mining Competition
+# Kaggle Titanic Data Mining Competition
 
 https://www.kaggle.com/c/titanic/overview/evaluation
 
