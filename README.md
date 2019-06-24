@@ -1,4 +1,4 @@
-# EDPS_7571
+# EDPS 7571 Foundations of Data Analytics and Visualizations
 Applied Data Analytics and Visualization Course
 
 # Source Material - Kaggle Titanic Data Mining Competition
@@ -11,7 +11,7 @@ Train: https://ericpoitras.github.io/EDPS_7571/dataset/train.txt
 
 Test: https://ericpoitras.github.io/EDPS_7571/dataset/test.txt
 
-# Instructions 
+# Instructions
 
 Goal
 It is your job to predict if a passenger survived the sinking of the Titanic or not. 
@@ -39,6 +39,11 @@ PassengerId,Survived
  
  Example: https://ericpoitras.github.io/EDPS_7571/assets/EDPS7571TestData.csv
  
- # Setting Up a POST REST API on RapidMiner Server
+ # Upgrade Your Static Dashboard Into a Dynamic One 
+ 
+ Setting Up POST REST API on RapidMiner Server:
  https://community.rapidminer.com/discussion/37418/sending-json-data-to-a-rapidminer-service-through-a-post-rest-api-call
+ 
+ Setting Up Fetch Call on Client Side to Get Data:
+ https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
  
