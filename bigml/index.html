@@ -1,0 +1,53 @@
+<html>
+    <body>
+        <div class="result"></div>
+    </body>
+</html>
+
+<script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"></script>
+
+<script>
+$.get( "https://bigml.io/andromeda/model/5d112bbcc98417073600a0da?username=ericpoitras;api_key=62ed5c42ca8bd6b1b2ad603f3a3b40231390a047", function( data ) {
+  //$( ".result" ).html( JSON.stringify(data) );
+  console.log(data);
+});
+    
+/*$.post("https://bigml.io/andromeda/prediction/5d112e14eba31d781a000e52?username=ericpoitras;api_key=62ed5c42ca8bd6b1b2ad603f3a3b40231390a047", {"model": "model/5d112bb8c984170734001ee0", "input_data": {"000000": '29',"000001": '1st Class',"000002": '£16,300.00',"000003": 'Southampton' }},function( data ) {
+  $( ".result" ).html( JSON.stringify(data) );
+  alert( "Load was performed." );
+})*/
+
+var CREDENTIALS = "username=ericpoitras;api_key=62ed5c42ca8bd6b1b2ad603f3a3b40231390a047";
+var MODEL = "ensemble/5d112bb8c984170734001ee0";
+    
+function createPrediction(){
+    var data = {
+        model: MODEL,
+        missing_strategy: 1, 
+        input_data:{
+            "000000": 60,
+            "000001": '1st Class',
+            "000002": '£16,300.00',
+            "000003": 'Southampton',
+        }
+    };
+    
+    jQuery.ajax({
+       url: "https://bigml.io/andromeda/prediction?"+CREDENTIALS,
+       type: "POST",
+        contentType: "application/json",
+        dataType: "json",
+        data: JSON.stringify(data),
+        success: function(prediction){
+            console.log(prediction);
+            $( ".result" ).html( JSON.stringify(prediction) );
+        },error: function(error){
+            console.log(error);
+        }
+    });
+}
+    createPrediction();
+</script>
