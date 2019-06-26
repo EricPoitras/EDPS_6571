@@ -916,17 +916,20 @@ $.get( "https://bigml.io/andromeda/model/5d112bbcc98417073600a0da?username=ericp
 })*/
 
 var CREDENTIALS = "username=ericpoitras;api_key=62ed5c42ca8bd6b1b2ad603f3a3b40231390a047";
-var MODEL = "ensemble/5d112bb8c984170734001ee0";
+var MODEL = "ensemble/5d12e21e3980b52fd6010951";
     
 function createPrediction(){
     var data = {
         model: MODEL,
         missing_strategy: 1, 
         input_data:{
-            "000000": 60,
-            "000001": '1st Class',
-            "000002": '£16,300.00',
-            "000003": 'Southampton',
+            "000002": 3,
+            "000004": 'm',
+            "10000d": 'S',
+            "10000e": '1',
+            "10000f": '1',
+            "100010": 1,
+            "100015": 'Mr'
         }
     };
     
