@@ -505,12 +505,12 @@ img.card-img-top{
           <h4>Model</h4>
         </div>
         <div class="card-body">
-          <h5 class="d-inline">Decision Tree Model - Test Set Results</h5>
-          <h5 class="d-inline float-right"><span class="col-pri">80%</span> accurate</h5>
+          <h5 class="d-inline">Ensemble Model Optimization Results</h5>
+          <h5 class="d-inline float-right"><span class="col-pri">84.9%</span> accurate</h5>
           <div id="chart4" class="mt-3" style="width:100%;"></div>
-          <h5>Passengers who <span class="col-pri">died</span> in the training set and the model predicted...</h5>
+          <h5>Passengers who <span class="col-pri">died</span> in the test set and the model predicted...</h5>
           <div id="chart5" class="mt-3"></div>
-          <h5>Passengers who <span class="col-pri">survived</span> in the training set and the model predicted...</h5>
+          <h5>Passengers who <span class="col-pri">survived</span> in the test set and the model predicted...</h5>
           <div id="chart6" class="mt-3"></div>
         </div>
       </div>
@@ -755,10 +755,10 @@ var options3 = {
             },
             series: [{
                 name: 'Correct',
-                data: [117]
+                data: [152]
             },{
                 name: 'Incorrect',
-                data: [30]
+                data: [27]
             }],
             xaxis: {
                 categories: ['Decision Tree'],
@@ -820,39 +820,27 @@ var options3 = {
             colors: ["#4ECDC4"],
             series: [{
                     name: '',
-                    data: generateData(18,0)
+                    data: generateData(20,0)
                 },
                 {
                     name: '',
-                    data: generateData(18,0)
+                    data: generateData(20,0)
                 },
                 {
                     name: '',
-                    data: generateData(18,0)
+                    data: generateData(20,0)
                 },
                 {
                     name: '',
-                    data: generateData(18,0)
+                    data: generateData(20,0)
                 },
                 {
                     name: '',
-                    data: generateData(18,0)
+                    data: generateData(20,0)
                 },
                 {
                     name: '',
-                    data: generateData(18,0)
-                },
-                {
-                    name: '',
-                    data: generateData(18,0)
-                },
-                {
-                    name: '',
-                    data: generateData(18,0)
-                },
-                {
-                    name: '',
-                    data: generateData(1,18)
+                    data: generateData(3,8)
                 }
             ],
             title: {
@@ -874,39 +862,19 @@ var options3 = {
             colors: ["#4ECDC4"],
             series: [{
                     name: '',
-                    data: generateData(18,0)
+                    data: generateData(19,1)
                 },
                 {
                     name: '',
-                    data: generateData(18,0)
+                    data: generateData(20,0)
                 },
                 {
                     name: '',
-                    data: generateData(18,0)
+                    data: generateData(20,0)
                 },
                 {
                     name: '',
-                    data: generateData(18,0)
-                },
-                {
-                    name: '',
-                    data: generateData(18,0)
-                },
-                {
-                    name: '',
-                    data: generateData(18,0)
-                },
-                {
-                    name: '',
-                    data: generateData(18,0)
-                },
-                {
-                    name: '',
-                    data: generateData(18,0)
-                },
-                {
-                    name: '',
-                    data: generateData(1,18)
+                    data: generateData(8,0)
                 }
             ],
             title: {
