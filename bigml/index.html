@@ -980,7 +980,7 @@ function createPrediction(){
                 }
             }
             console.log("Ensemble model predicted value: " + prediction_outcome() + " with " + prediction.probability*100 + "% likelihood" );
-            document.getElementById("prediction_output").innerHTML(prediction_outcome() + " with " + prediction.probability*100 + "% likelihood");
+            document.getElementById("prediction_output").innerHTML = prediction_outcome() + " with " + prediction.probability*100 + "% likelihood";
         },error: function(error){
             console.log(error);
         }
