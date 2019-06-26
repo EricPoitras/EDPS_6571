@@ -64,7 +64,7 @@ PassengerId,Survived
  Setting Up Fetch Call from the Dashboard to Get Data:
  https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
  
- # Cost-Effective Example - Using BigML to Build Dynamic Dashboards
+ # Cost-Effective Example #1 - Using BigML to Build Dynamic Dashboards
  
  Getting Started with BigML
  https://bigml.com/education/videos
@@ -72,3 +72,13 @@ PassengerId,Survived
  Example API Integration with Dashboard
  https://ericpoitras.github.io/EDPS_7571/bigml/#
  
+# Cost-Effective Example #2 - Using RapidMiner AutoModel Cloud to Build Dynamic Dashboards
+
+Getting Started with RapidMiner AutoModel Cloud
+https://rapidminer.com/blog/scoring-data-with-rapidminer-auto-model-and-zapier/
+
+Creating an API
+https://automodel.rapidminer.com/ (Available to Educational Accounts as a Premium Service)
+
+Example API Call
+https://reqbin.com/eur0ypj0
