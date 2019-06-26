@@ -64,3 +64,11 @@ PassengerId,Survived
  Setting Up Fetch Call from the Dashboard to Get Data:
  https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
  
+ # Cost-Effective Example - Using BigML to Build Dynamic Dashboards
+ 
+ Getting Started with BigML
+ https://bigml.com/education/videos
+ 
+ Example API Integration with Dashboard
+ https://ericpoitras.github.io/EDPS_7571/bigml/#
+ 
