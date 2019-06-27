@@ -95,3 +95,5 @@ Google Dataset Search: https://toolbox.google.com/datasetsearch
 Educational Datasets: https://knoema.com/atlas/topics/Education/datasets
 
 Educational Data Mining Competitions: https://www.kaggle.com/tags/education
+
+State of Utah - Open Data Portal: https://opendata.utah.gov/
