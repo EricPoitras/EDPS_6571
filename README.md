@@ -87,3 +87,11 @@ https://reqbin.com/eur0ypj0
 
 Add Endpoint and Data
 https://reqbin.com/
+
+# Finding Datasets
+
+Google Dataset Search: https://toolbox.google.com/datasetsearch
+
+Educational Datasets: https://knoema.com/atlas/topics/Education/datasets
+
+Educational Data Mining Competitions: https://www.kaggle.com/tags/education
