@@ -55,7 +55,7 @@ PassengerId,Survived
  
  # Moving Beyond the Course - Building Dynamic Dashboards Using RapidMiner Server
  
- Setting Up Local Server Environment:
+ Setting Up Local Server Environment for Testing Purposes (Images are Available in AWS and Azure):
  https://www.apachefriends.org/index.html
  
  Setting Up POST REST API on RapidMiner Server:
