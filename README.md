@@ -72,7 +72,7 @@ PassengerId,Survived
  Example API Integration with Dashboard
  https://ericpoitras.github.io/EDPS_7571/bigml/#
  
-# Cost-Effective Example #2 - Using RapidMiner AutoModel Cloud to Build Dynamic Dashboards
+# Cost-Effective Example #2 - Using RapidMiner AutoModel Cloud to Build Dynamic Dashboards (BETA)
 
 Getting Started with RapidMiner AutoModel Cloud
 https://rapidminer.com/blog/scoring-data-with-rapidminer-auto-model-and-zapier/
@@ -82,3 +82,8 @@ https://automodel.rapidminer.com/ (Available to Educational Accounts as a Premiu
 
 Example API Call
 https://reqbin.com/eur0ypj0
+
+# Testing Your API
+
+Add Endpoint and Data
+https://reqbin.com/
