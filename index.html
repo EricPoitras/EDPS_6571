@@ -505,8 +505,45 @@ img.card-img-top{
           <h4>Model</h4>
         </div>
         <div class="card-body">
+          <h5 class="d-inline">Decision Tree Model Prediction</h5>
+          <h5 id="prediction_output" class="d-inline float-right"></h5>
+          <form class="mt-3 mb-3">
+            <div class="row m-1">
+              <div class="col">
+                <label for="000002">Class</label>
+                <input id="000002" type="text" class="form-control" placeholder="Class, e.g., 3 (OR 1-3)" value="3">
+              </div>
+              <div class="col">
+                <label for="000004">Gender</label>
+                <input id="000004" type="text" class="form-control" placeholder="Gender, e.g., male (OR female)" value="male">
+              </div>
+              <div class="col">
+                <label for="10000d">Embarked</label>
+                <input id="10000d" type="text" class="form-control" placeholder="Embarked, e.g., S (OR C, and Q)" value="S">
+              </div>
+              <div class="col">
+                <label for="10000e">Fare</label>
+                <input id="10000e" type="text" class="form-control" placeholder="Fare, e.g., 1st fifth (OR 2nd, 3rd, 4th, and 5th fifth)" value="1st fifth">
+              </div>
+            </div>
+            <div class="row m-1">
+              <div class="col">
+                <label for="10000f">Age</label>
+                <input id="10000f" type="text" class="form-control" placeholder="Age, e.g., 1st fifth (OR 2nd, 3rd, 4th, and 5th fifth)" value="1st fifth">
+              </div>
+              <div class="col">
+                <label for="100010">Family Size</label>
+                <input id="100010" type="text" class="form-control" placeholder="Family Size, e.g., 1 (OR 0-10)" value="1">
+              </div>
+              <div class="col">
+                <label for="100015">Title</label>
+                <input id="100015" type="text" class="form-control" placeholder="Title, e.g., Mr (OR Miss, Mrs, Ms, Other)" value="Mr">              
+              </div>
+            </div>
+            <button type="button" class="btn btn-secondary m-1" onclick="createPrediction()">Submit</button>
+          </form>
           <h5 class="d-inline">Decision Tree Model - Test Set Results</h5>
-          <h5 class="d-inline float-right"><span class="col-pri">80%</span> accurate</h5>
+          <h5 class="d-inline float-right"><span class="col-pri">82.58%</span> accurate</h5>
           <div id="chart4" class="mt-3" style="width:100%;"></div>
           <h5>Passengers who <span class="col-pri">died</span> in the training set and the model predicted...</h5>
           <div id="chart5" class="mt-3"></div>
@@ -521,7 +558,10 @@ img.card-img-top{
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
@@ -760,10 +800,10 @@ var options3 = {
             },
             series: [{
                 name: 'Correct',
-                data: [117]
+                data: [147]
             },{
                 name: 'Incorrect',
-                data: [30]
+                data: [31]
             }],
             xaxis: {
                 categories: ['Decision Tree'],
@@ -827,39 +867,31 @@ var options3 = {
             colors: ["#4ECDC4"],
             series: [{
                     name: '',
-                    data: generateData(18,0)
+                    data: generateData(20,0)
                 },
                 {
                     name: '',
-                    data: generateData(18,0)
+                    data: generateData(20,0)
                 },
                 {
                     name: '',
-                    data: generateData(18,0)
+                    data: generateData(20,0)
                 },
                 {
                     name: '',
-                    data: generateData(18,0)
+                    data: generateData(20,0)
                 },
                 {
                     name: '',
-                    data: generateData(18,0)
+                    data: generateData(20,0)
                 },
                 {
                     name: '',
-                    data: generateData(18,0)
+                    data: generateData(10,20)
                 },
                 {
                     name: '',
-                    data: generateData(18,0)
-                },
-                {
-                    name: '',
-                    data: generateData(18,0)
-                },
-                {
-                    name: '',
-                    data: generateData(1,18)
+                    data: generateData(0,8)
                 }
             ],
             title: {
@@ -872,7 +904,7 @@ var options3 = {
    
    var options6 = {
             chart: {
-                height: 350,
+                height: 250,
                 type: 'heatmap',
             },
             dataLabels: {
@@ -881,39 +913,19 @@ var options3 = {
             colors: ["#4ECDC4"],
             series: [{
                     name: '',
-                    data: generateData(18,0)
+                    data: generateData(20,0)
                 },
                 {
                     name: '',
-                    data: generateData(18,0)
+                    data: generateData(20,0)
                 },
                 {
                     name: '',
-                    data: generateData(18,0)
+                    data: generateData(15,20)
                 },
                 {
                     name: '',
-                    data: generateData(18,0)
-                },
-                {
-                    name: '',
-                    data: generateData(18,0)
-                },
-                {
-                    name: '',
-                    data: generateData(18,0)
-                },
-                {
-                    name: '',
-                    data: generateData(18,0)
-                },
-                {
-                    name: '',
-                    data: generateData(18,0)
-                },
-                {
-                    name: '',
-                    data: generateData(1,18)
+                    data: generateData(0,8)
                 }
             ],
             title: {
@@ -948,5 +960,64 @@ var chart6 = new ApexCharts(document.querySelector("#chart6"), options6);
 
 chart6.render();
     </script>
+        
+<script>
+/*$.get( "https://bigml.io/andromeda/model/5d112bbcc98417073600a0da?username=ericpoitras;api_key=62ed5c42ca8bd6b1b2ad603f3a3b40231390a047", function( data ) {
+  //$( ".result" ).html( JSON.stringify(data) );
+  console.log(data);
+});*/
+
+var CREDENTIALS = "https://automodel.rapidminer.com/api/deployments/2cdae301-4ff4-4208-8f36-df16b0c1853d";
+    
+function createPrediction(){
+    
+    
+    var data = {
+        data:[{
+            "Pclass": document.getElementById("000002").value,
+            "Sex": document.getElementById("000004").value,
+            "Embarked_Clean": document.getElementById("10000d").value,
+            "Fare_Quintile": document.getElementById("10000e").value,
+            "Age_Quintile": document.getElementById("10000f").value,
+            "Family_Size": document.getElementById("100010").value,
+            "Title_Aggregate": document.getElementById("100015").value
+        }]
+    };
+    
+    console.log(JSON.stringify(data));
+    
+    jQuery.ajax({
+       url: CREDENTIALS,
+       type: "POST",
+        contentType: "application/json",
+        dataType: "json",
+        data: JSON.stringify(data),
+        success: function(prediction){
+            console.log(prediction);
+            //$( ".result" ).html( JSON.stringify(prediction) );
+            function prediction_outcome(){
+                console.log(prediction.data[0]['prediction(Survived)']);
+                if(prediction.data[0]['prediction(Survived)']==0){
+                   return "Died";
+                }else{
+                   return "Survived";
+                }
+            }
+            function prediction_probability(){
+                if(prediction.data[0]['prediction(Survived)']==0){
+                   return (prediction.data[0]['confidence(0.00)']*100).toFixed(2);
+                }else{
+                   return (prediction.data[0]['confidence(1.00)']*100).toFixed(2);
+                }
+            }
+            console.log("Ensemble model predicted value: " + prediction_outcome() + " with " + prediction_probability() + "% likelihood" );
+            document.getElementById("prediction_output").innerHTML = prediction_outcome() + " with <span class='col-pri'>" + prediction_probability() + "%</span> likelihood";
+        },error: function(error){
+            console.log(error);
+        }
+    });
+}
+    createPrediction();
+</script>
   </body>
 </html>
