@@ -21,9 +21,13 @@ https://www.kaggle.com/c/titanic/overview/evaluation
 
 # Dataset
 
-Train: https://ericpoitras.github.io/EDPS_7571/dataset/train.txt
+Kaggle Train: https://ericpoitras.github.io/EDPS_7571/dataset/train.txt
 
-Test: https://ericpoitras.github.io/EDPS_7571/dataset/test.txt
+Kaggle Test: https://ericpoitras.github.io/EDPS_7571/dataset/test.txt
+
+Opendatasoft: https://public.opendatasoft.com/explore/dataset/titanic-passengers/table/
+
+Opendatasoft API (Full): https://public.opendatasoft.com/api/records/1.0/search/?dataset=titanic-passengers&rows=900&sort=-passengerid&facet=survived&facet=pclass&facet=sex&facet=age&facet=embarked 
 
 # Instructions
 
