@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.7/fullpage.css" integrity="sha256-MHZlm8KTLRxClmwQTYIfJEVbcRx1VIgfZJjaBOGCDoc=" crossorigin="anonymous" />
+
+    <title>landingPage.js</title>
+      
+    <style>
+        .section{
+            background: #141E30;  /* fallback for old browsers */
+            background: -webkit-linear-gradient(to right, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
+            background: linear-gradient(to right, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }
+        .section h1{
+            text-align:center;
+        }
+        #fp-nav span, .fp-slidesNav span{
+            background-color: white !important;
+        }
+    </style>
+  </head>
+  <body>
+    <div id="fullpage">
+        <div class="section" data-anchor="s1">
+            <div class="card m-auto" style="width: 40%; max-height: 90%">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/3/38/RMS_Titanic_4.jpg" class="card-img-top" alt="...">
+                  <div class="card-body">
+                      <h1>Intro</h1>
+                        <blockquote class="blockquote text-center">
+                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                        </blockquote>
+                    </div>
+                </div>
+        </div>
+        <div class="section" data-anchor="s2">
+            
+            <div class="slide pb-3" data-anchor="slide1">
+                <h1>Survival Rates</h1>
+                <div class="card w-50 m-auto">
+                  <div class="card-body">
+                    <div id="chart"></div>
+                  </div>
+                  <div class="card-body">
+                        <blockquote class="blockquote text-center">
+                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+	        <div class="slide" data-anchor="slide2"> Slide 2 </div>
+	        <div class="slide" data-anchor="slide3"> Slide 3 </div>
+	        <div class="slide" data-anchor="slide4"> Slide 4 </div>
+        </div>
+        <div class="section" data-anchor="s3">
+            <h1>Predictive Model</h1>
+        </div>
+        <div class="section" data-anchor="s4">
+            <h1>Acknowledgements</h1>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.7/fullpage.js" integrity="sha256-Lw96aZrbaAuj9vBh9haoZrkYmRA9Rbkv4K6C8LonvBk=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.0.7/vendors/scrolloverflow.js" integrity="sha256-+br4BxToq219YfbOlhAiYTFbP3nKdwrD2HrngubGi2s=" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+      <script>
+      var myFullpage = new fullpage('#fullpage', {
+            //Navigation
+            //menu: '#menu',
+            //lockAnchors: false,
+            anchors:['s1', 's2', 's3', 's4'],
+            navigation: true,
+            navigationPosition: 'right',
+            navigationTooltips: ['Intro', 'Survival Rates', 'Predictive Model', 'Acknowledgements'],
+            showActiveTooltip: true,
+            slidesNavigation: true,
+            slidesNavPosition: 'bottom',
+
+            //Scrolling
+            css3: true,
+            scrollingSpeed: 1000,
+            autoScrolling: true,
+            fitToSection: true,
+            fitToSectionDelay: 1000,
+            scrollBar: false,
+            easing: 'easeInOutCubic',
+            easingcss3: 'ease',
+            loopBottom: false,
+            loopTop: false,
+            loopHorizontal: true,
+            continuousVertical: false,
+            continuousHorizontal: false,
+            scrollHorizontally: false,
+            interlockedSlides: false,
+            dragAndMove: false,
+            offsetSections: false,
+            resetSliders: false,
+            fadingEffect: false,
+            normalScrollElements: '#element1, .element2',
+            scrollOverflow: false,
+            scrollOverflowReset: false,
+            scrollOverflowOptions: null,
+            touchSensitivity: 15,
+            bigSectionsDestination: null,
+
+            //Accessibility
+            keyboardScrolling: true,
+            animateAnchor: true,
+            recordHistory: true,
+
+            //Design
+            controlArrows: false,
+            verticalCentered: true,
+            sectionsColor : ['#ccc', '#fff'],
+            paddingTop: '3em',
+            paddingBottom: '10px',
+            fixedElements: '#header, .footer',
+            responsiveWidth: 0,
+            responsiveHeight: 0,
+            responsiveSlides: false,
+            parallax: false,
+            parallaxOptions: {type: 'reveal', percentage: 62, property: 'translate'},
+            cards: false,
+            cardsOptions: {perspective: 100, fadeContent: true, fadeBackground: true},
+
+            //Custom selectors
+            sectionSelector: '.section',
+            slideSelector: '.slide',
+
+            lazyLoading: true,
+
+            //events
+            onLeave: function(origin, destination, direction){},
+            afterLoad: function(origin, destination, direction){},
+            afterRender: function(){},
+            afterResize: function(width, height){},
+            afterReBuild: function(){},
+            afterResponsive: function(isResponsive){},
+            afterSlideLoad: function(section, origin, destination, direction){},
+            onSlideLeave: function(section, origin, destination, direction){}
+        });
+      </script>
+      
+      <script>
+        var options = {
+          chart: {
+            type: 'line'
+          },
+          series: [{
+            name: 'sales',
+            data: [30,40,35,50,49,60,70,91,125]
+          }],
+          xaxis: {
+            categories: [1991,1992,1993,1994,1995,1996,1997, 1998,1999]
+          }
+        }
+
+        var chart = new ApexCharts(document.querySelector("#chart"), options);
+
+        chart.render();
+      </script>
+  </body>
+</html>
