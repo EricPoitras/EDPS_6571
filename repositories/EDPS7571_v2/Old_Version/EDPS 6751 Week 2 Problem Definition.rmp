@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><process version="8.1.001">
+  <context>
+    <input/>
+    <output/>
+    <macros/>
+  </context>
+  <operator activated="true" class="process" compatibility="8.1.001" expanded="true" name="Process">
+    <parameter key="logverbosity" value="init"/>
+    <parameter key="random_seed" value="2001"/>
+    <parameter key="send_mail" value="never"/>
+    <parameter key="notification_email" value=""/>
+    <parameter key="process_duration_for_mail" value="30"/>
+    <parameter key="encoding" value="SYSTEM"/>
+    <process expanded="true">
+      <operator activated="true" class="retrieve" compatibility="8.1.001" expanded="true" height="68" name="Retrieve EDPS6751TrainingSet" width="90" x="45" y="34">
+        <parameter key="repository_entry" value="../data/EDPS6751TrainingSet"/>
+        <description align="center" color="transparent" colored="false" width="126">Training Set Titanic Kaggle Competition</description>
+      </operator>
+      <operator activated="true" class="select_subprocess" compatibility="8.1.001" expanded="true" height="82" name="Problem Definition" width="90" x="246" y="34">
+        <parameter key="select_which" value="2"/>
+        <process expanded="true">
+          <connect from_port="input 1" to_port="output 1"/>
+          <portSpacing port="source_input 1" spacing="0"/>
+          <portSpacing port="source_input 2" spacing="0"/>
+          <portSpacing port="sink_output 1" spacing="0"/>
+          <portSpacing port="sink_output 2" spacing="0"/>
+        </process>
+        <process expanded="true">
+          <operator activated="true" class="set_role" compatibility="8.1.001" expanded="true" height="82" name="Set Role of Features" width="90" x="179" y="34">
+            <parameter key="attribute_name" value="Survived"/>
+            <parameter key="target_role" value="label"/>
+            <list key="set_additional_roles">
+              <parameter key="PassengerId" value="id"/>
+            </list>
+            <description align="center" color="transparent" colored="false" width="126">Define target attribute and id</description>
+          </operator>
+          <connect from_port="input 1" to_op="Set Role of Features" to_port="example set input"/>
+          <connect from_op="Set Role of Features" from_port="example set output" to_port="output 1"/>
+          <portSpacing port="source_input 1" spacing="0"/>
+          <portSpacing port="source_input 2" spacing="0"/>
+          <portSpacing port="sink_output 1" spacing="0"/>
+          <portSpacing port="sink_output 2" spacing="0"/>
+        </process>
+      </operator>
+      <connect from_op="Retrieve EDPS6751TrainingSet" from_port="output" to_op="Problem Definition" to_port="input 1"/>
+      <connect from_op="Problem Definition" from_port="output 1" to_port="result 1"/>
+      <portSpacing port="source_input 1" spacing="0"/>
+      <portSpacing port="sink_result 1" spacing="0"/>
+      <portSpacing port="sink_result 2" spacing="0"/>
+      <description align="center" color="yellow" colored="false" height="71" resized="true" width="100" x="239" y="128">Week 2: Problem Definition</description>
+    </process>
+  </operator>
+</process>
