@@ -86,6 +86,50 @@ Darker
 #cont_dashboard #cont_data_exploration .card{
     height: 200px;
     padding: 10px;
+    margin: 5px;
     background-color: #FEFCFB;
     color: #5E8C7F;
 }
+
+@media only screen and (max-width: 960px) {
+    /* Implements a responsive layout for tablet devices and under */
+    #cont_sidebar{
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        z-index: 99;
+        height: 100vh;
+        width: 0px;
+        max-width: 0px;
+        opacity: 0;
+        transition: 0.5s;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    #cont_sidebar.active{
+        width: 250px;
+        max-width: 250px;
+        opacity: 1;
+    }
+    #cont_dashboard{
+        flex: 0 0 100%;
+        max-width: 100%;
+        height: calc(100vh - 60px);
+        overflow-y: scroll;
+    }
+    #cont_logo span{
+        display: none;
+    }
+    nav ol.breadcrumb{
+        margin: 0px;
+        padding: 10px !important;
+        height: auto !important;
+    }
+    #btn_settings{
+        cursor: pointer;
+    }
+    #cont_data_exploration div.card{
+        margin: 10px !important;
+    }
+
+  }
