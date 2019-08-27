@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?><process version="9.3.001">
+  <context>
+    <input/>
+    <output/>
+    <macros/>
+  </context>
+  <operator activated="true" class="process" compatibility="9.3.001" expanded="true" name="Process">
+    <parameter key="logverbosity" value="init"/>
+    <parameter key="random_seed" value="2001"/>
+    <parameter key="send_mail" value="never"/>
+    <parameter key="notification_email" value=""/>
+    <parameter key="process_duration_for_mail" value="30"/>
+    <parameter key="encoding" value="SYSTEM"/>
+    <process expanded="true">
+      <operator activated="true" class="read_url" compatibility="9.3.001" expanded="true" height="68" name="Read Training Data" width="90" x="112" y="85">
+        <parameter key="url" value="https://ericpoitras.github.io/EDPS_7571/dataset/train.txt"/>
+        <parameter key="column_separators" value=";"/>
+        <parameter key="read_attribute_names" value="true"/>
+        <parameter key="skip_error_lines" value="false"/>
+        <parameter key="decimal_point_character" value="."/>
+        <parameter key="encoding" value="SYSTEM"/>
+        <description align="center" color="transparent" colored="false" width="126">Read URL&lt;br&gt;Titanic Training Data</description>
+      </operator>
+      <operator activated="true" class="store" compatibility="9.3.001" expanded="true" height="68" name="Store Training" width="90" x="313" y="85">
+        <parameter key="repository_entry" value="//Local Repository/data/EDPS7950_Fall2019_TrainingSet"/>
+        <description align="center" color="transparent" colored="false" width="126">Write to local repo&lt;br/&gt;</description>
+      </operator>
+      <operator activated="true" class="read_url" compatibility="9.3.001" expanded="true" height="68" name="Read Test Data" width="90" x="112" y="238">
+        <parameter key="url" value="https://ericpoitras.github.io/EDPS_7571/dataset/test.txt"/>
+        <parameter key="column_separators" value=";"/>
+        <parameter key="read_attribute_names" value="true"/>
+        <parameter key="skip_error_lines" value="false"/>
+        <parameter key="decimal_point_character" value="."/>
+        <parameter key="encoding" value="SYSTEM"/>
+        <description align="center" color="transparent" colored="false" width="126">Read URL&lt;br/&gt;Titanic Test Data&lt;br/&gt;</description>
+      </operator>
+      <operator activated="true" class="store" compatibility="9.3.001" expanded="true" height="68" name="Store Test" width="90" x="313" y="238">
+        <parameter key="repository_entry" value="//Local Repository/data/EDPS7950_Fall2019_TestSet"/>
+        <description align="center" color="transparent" colored="false" width="126">Write to local repo&lt;br/&gt;</description>
+      </operator>
+      <operator activated="true" class="subprocess" compatibility="9.3.001" expanded="true" height="82" name="Read API Data" width="90" x="112" y="391">
+        <process expanded="true">
+          <operator activated="true" class="web:get_webpage" compatibility="9.0.000" expanded="true" height="68" name="Get Page" width="90" x="45" y="34">
+            <parameter key="url" value="https://public.opendatasoft.com/api/records/1.0/search/?dataset=titanic-passengers&amp;rows=900&amp;sort=-passengerid&amp;facet=survived&amp;facet=pclass&amp;facet=sex&amp;facet=age&amp;facet=embarked"/>
+            <parameter key="random_user_agent" value="false"/>
+            <parameter key="connection_timeout" value="10000"/>
+            <parameter key="read_timeout" value="10000"/>
+            <parameter key="follow_redirects" value="true"/>
+            <parameter key="accept_cookies" value="none"/>
+            <parameter key="cookie_scope" value="global"/>
+            <parameter key="request_method" value="GET"/>
+            <list key="query_parameters"/>
+            <list key="request_properties"/>
+            <parameter key="override_encoding" value="false"/>
+            <parameter key="encoding" value="SYSTEM"/>
+          </operator>
+          <operator activated="true" class="text:json_to_data" compatibility="8.2.000" expanded="true" height="82" name="JSON To Data" width="90" x="179" y="34">
+            <parameter key="ignore_arrays" value="false"/>
+            <parameter key="limit_attributes" value="false"/>
+            <parameter key="skip_invalid_documents" value="false"/>
+            <parameter key="guess_data_types" value="false"/>
+            <parameter key="keep_missing_attributes" value="false"/>
+            <parameter key="missing_values_aliases" value=", null, NaN, missing"/>
+          </operator>
+          <operator activated="true" class="transpose" compatibility="9.3.001" expanded="true" height="82" name="Transpose" width="90" x="313" y="34"/>
+          <connect from_op="Get Page" from_port="output" to_op="JSON To Data" to_port="documents 1"/>
+          <connect from_op="JSON To Data" from_port="example set" to_op="Transpose" to_port="example set input"/>
+          <connect from_op="Transpose" from_port="example set output" to_port="out 1"/>
+          <portSpacing port="source_in 1" spacing="0"/>
+          <portSpacing port="sink_out 1" spacing="0"/>
+          <portSpacing port="sink_out 2" spacing="0"/>
+        </process>
+        <description align="center" color="transparent" colored="false" width="126">Read JSON &lt;br/&gt;Titanic Full Data from REST API&lt;br/&gt;</description>
+      </operator>
+      <operator activated="true" class="store" compatibility="9.3.001" expanded="true" height="68" name="Store API Data" width="90" x="313" y="391">
+        <parameter key="repository_entry" value="//Local Repository/data/EDPS7950_Fall2019_APISet"/>
+        <description align="center" color="transparent" colored="false" width="126">Write to local repo</description>
+      </operator>
+      <connect from_op="Read Training Data" from_port="output" to_op="Store Training" to_port="input"/>
+      <connect from_op="Read Test Data" from_port="output" to_op="Store Test" to_port="input"/>
+      <connect from_op="Read API Data" from_port="out 1" to_op="Store API Data" to_port="input"/>
+      <portSpacing port="source_input 1" spacing="0"/>
+      <portSpacing port="sink_result 1" spacing="0"/>
+      <description align="left" color="green" colored="true" height="187" resized="true" width="740" x="72" y="565">Links to Dataset&lt;br&gt;&lt;br&gt;Training data: https://ericpoitras.github.io/EDPS_7571/dataset/train.txt&lt;br&gt;&lt;br&gt;Test data:&lt;br&gt;https://ericpoitras.github.io/EDPS_7571/dataset/test.txt&lt;br&gt;&lt;br&gt;API data (Training data):&lt;br&gt;https://public.opendatasoft.com/api/records/1.0/search/?dataset=titanic-passengers&amp;amp;rows=900&amp;amp;sort=-passengerid&amp;amp;facet=survived&amp;amp;facet=pclass&amp;amp;facet=sex&amp;amp;facet=age&amp;amp;facet=embarked&lt;br&gt;</description>
+      <description align="center" color="gray" colored="true" height="508" resized="true" width="161" x="76" y="48">READ</description>
+      <description align="center" color="gray" colored="true" height="508" resized="false" width="161" x="275" y="49">WRITE</description>
+      <description align="center" color="yellow" colored="true" height="108" resized="true" width="361" x="455" y="50">Read the training, test, API training dataset and write it to a local repository.&lt;br&gt;&lt;br&gt;TO DO: You will need to define the path of the local repo in each Store operator.</description>
+    </process>
+  </operator>
+</process>
