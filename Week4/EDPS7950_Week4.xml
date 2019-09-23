@@ -13,9 +13,9 @@
     <parameter key="encoding" value="SYSTEM"/>
     <process expanded="true">
       <operator activated="true" class="retrieve" compatibility="9.3.001" expanded="true" height="68" name="Training Data" width="90" x="112" y="136">
-        <parameter key="repository_entry" value="../data/EDPS7950_Fall2019_TrainingSet"/>
+        <parameter key="repository_entry" value="//Local Repository/data/EDPS7950_Fall2019_TrainingSet"/>
       </operator>
-      <operator activated="true" breakpoints="after" class="set_role" compatibility="9.3.001" expanded="true" height="82" name="Set Role" width="90" x="313" y="136">
+      <operator activated="true" class="set_role" compatibility="9.3.001" expanded="true" height="82" name="Set Role" width="90" x="313" y="136">
         <parameter key="attribute_name" value="Survived"/>
         <parameter key="target_role" value="label"/>
         <list key="set_additional_roles">
@@ -25,7 +25,7 @@
       </operator>
       <operator activated="true" class="subprocess" compatibility="9.3.001" expanded="true" height="103" name="Data Preprocessing" width="90" x="514" y="136">
         <process expanded="true">
-          <operator activated="true" breakpoints="after" class="subprocess" compatibility="9.3.001" expanded="true" height="82" name="Replace All Missing Values" origin="EXPORTED_AUTOMODEL" width="90" x="45" y="85">
+          <operator activated="true" class="subprocess" compatibility="9.3.001" expanded="true" height="82" name="Replace All Missing Values" origin="EXPORTED_AUTOMODEL" width="90" x="45" y="85">
             <process expanded="true">
               <operator activated="true" class="replace_missing_values" compatibility="9.3.001" expanded="true" height="103" name="Replace Nominal Missings" origin="EXPORTED_AUTOMODEL" width="90" x="45" y="34">
                 <parameter key="return_preprocessing_model" value="false"/>
@@ -128,7 +128,7 @@
             </process>
             <description align="center" color="transparent" colored="false" width="126">Replace missing values</description>
           </operator>
-          <operator activated="true" breakpoints="after" class="select_subprocess" compatibility="9.3.001" expanded="true" height="82" name="Remove Duplicate" width="90" x="179" y="85">
+          <operator activated="true" class="select_subprocess" compatibility="9.3.001" expanded="true" height="82" name="Remove Duplicate" width="90" x="179" y="85">
             <parameter key="select_which" value="2"/>
             <process expanded="true">
               <connect from_port="input 1" to_port="output 1"/>
@@ -162,7 +162,7 @@
             </process>
             <description align="center" color="transparent" colored="false" width="126">Any duplicate values will be filtered</description>
           </operator>
-          <operator activated="true" breakpoints="after" class="select_subprocess" compatibility="9.3.001" expanded="true" height="82" name="Handle Missing Values" width="90" x="313" y="85">
+          <operator activated="true" class="select_subprocess" compatibility="9.3.001" expanded="true" height="82" name="Handle Missing Values" width="90" x="313" y="85">
             <parameter key="select_which" value="2"/>
             <process expanded="true">
               <connect from_port="input 1" to_port="output 1"/>
@@ -219,7 +219,7 @@
             </process>
             <description align="center" color="transparent" colored="false" width="126">Handle missing values for embarked through filter/replace</description>
           </operator>
-          <operator activated="true" breakpoints="after" class="select_subprocess" compatibility="9.3.001" expanded="true" height="82" name="Filter Outliers" width="90" x="447" y="85">
+          <operator activated="true" class="select_subprocess" compatibility="9.3.001" expanded="true" height="82" name="Filter Outliers" width="90" x="447" y="85">
             <parameter key="select_which" value="1"/>
             <process expanded="true">
               <connect from_port="input 1" to_port="output 1"/>
@@ -267,7 +267,7 @@
             </process>
             <description align="center" color="transparent" colored="false" width="126">Outlier detection/filtering&lt;br/&gt;</description>
           </operator>
-          <operator activated="true" breakpoints="after" class="select_subprocess" compatibility="9.3.001" expanded="true" height="82" name="Feature Discretization (Target and Features)" width="90" x="648" y="85">
+          <operator activated="true" class="select_subprocess" compatibility="9.3.001" expanded="true" height="82" name="Feature Discretization (Target and Features)" width="90" x="648" y="85">
             <parameter key="select_which" value="1"/>
             <process expanded="true">
               <operator activated="true" class="discretize_by_user_specification" compatibility="9.3.001" expanded="true" height="103" name="Discretize Target" width="90" x="45" y="34">
@@ -452,7 +452,7 @@
             </process>
             <description align="center" color="transparent" colored="false" width="126">Discretize binary target attribute and features using different methods</description>
           </operator>
-          <operator activated="true" breakpoints="after" class="select_subprocess" compatibility="9.3.001" expanded="true" height="82" name="Feature Engineering" width="90" x="782" y="85">
+          <operator activated="true" class="select_subprocess" compatibility="9.3.001" expanded="true" height="82" name="Feature Engineering" width="90" x="782" y="85">
             <parameter key="select_which" value="2"/>
             <process expanded="true">
               <connect from_port="input 1" to_port="output 1"/>
@@ -480,7 +480,7 @@
             </process>
             <description align="center" color="transparent" colored="false" width="126">Construct novel features using logical operations to differentiate Survival classes&lt;br/&gt;</description>
           </operator>
-          <operator activated="true" breakpoints="after" class="subprocess" compatibility="9.3.001" expanded="true" height="82" name="Unify All Value Types" origin="EXPORTED_AUTOMODEL" width="90" x="916" y="85">
+          <operator activated="true" class="subprocess" compatibility="9.3.001" expanded="true" height="82" name="Unify All Value Types" origin="EXPORTED_AUTOMODEL" width="90" x="916" y="85">
             <process expanded="true">
               <operator activated="true" class="map" compatibility="9.3.001" expanded="true" height="82" name="Map Labels" width="90" x="45" y="34">
                 <parameter key="attribute_filter_type" value="single"/>
@@ -572,13 +572,33 @@
                 <parameter key="sort_direction" value="ascending"/>
                 <description align="center" color="transparent" colored="false" width="126">Order columns alphabetically.</description>
               </operator>
+              <operator activated="true" class="nominal_to_binominal" compatibility="9.3.001" expanded="true" height="103" name="Nominal to Binominal" width="90" x="968" y="34">
+                <parameter key="return_preprocessing_model" value="false"/>
+                <parameter key="create_view" value="false"/>
+                <parameter key="attribute_filter_type" value="single"/>
+                <parameter key="attribute" value="Survived"/>
+                <parameter key="attributes" value=""/>
+                <parameter key="use_except_expression" value="false"/>
+                <parameter key="value_type" value="nominal"/>
+                <parameter key="use_value_type_exception" value="false"/>
+                <parameter key="except_value_type" value="file_path"/>
+                <parameter key="block_type" value="single_value"/>
+                <parameter key="use_block_type_exception" value="false"/>
+                <parameter key="except_block_type" value="single_value"/>
+                <parameter key="invert_selection" value="false"/>
+                <parameter key="include_special_attributes" value="true"/>
+                <parameter key="transform_binominal" value="false"/>
+                <parameter key="use_underscore_in_name" value="false"/>
+                <description align="center" color="transparent" colored="false" width="126">Convert target attribute to binomial</description>
+              </operator>
               <connect from_port="in 1" to_op="Map Labels" to_port="example set input"/>
               <connect from_op="Map Labels" from_port="example set output" to_op="Remove Any Dates" to_port="example set input"/>
               <connect from_op="Remove Any Dates" from_port="example set output" to_op="Nominal to Text" to_port="example set input"/>
               <connect from_op="Nominal to Text" from_port="example set output" to_op="Text to Nominal" to_port="example set input"/>
               <connect from_op="Text to Nominal" from_port="example set output" to_op="Numerical to Real" to_port="example set input"/>
               <connect from_op="Numerical to Real" from_port="example set output" to_op="Reorder Attributes" to_port="example set input"/>
-              <connect from_op="Reorder Attributes" from_port="example set output" to_port="out 1"/>
+              <connect from_op="Reorder Attributes" from_port="example set output" to_op="Nominal to Binominal" to_port="example set input"/>
+              <connect from_op="Nominal to Binominal" from_port="example set output" to_port="out 1"/>
               <portSpacing port="source_in 1" spacing="0"/>
               <portSpacing port="source_in 2" spacing="0"/>
               <portSpacing port="sink_out 1" spacing="0"/>
@@ -586,7 +606,7 @@
             </process>
             <description align="center" color="transparent" colored="false" width="126">Unify all value types</description>
           </operator>
-          <operator activated="true" breakpoints="after" class="select_subprocess" compatibility="9.3.001" expanded="true" height="103" name="Feature Selection" width="90" x="1117" y="85">
+          <operator activated="true" class="select_subprocess" compatibility="9.3.001" expanded="true" height="103" name="Feature Selection" width="90" x="1117" y="85">
             <parameter key="select_which" value="2"/>
             <process expanded="true">
               <connect from_port="input 1" to_port="output 1"/>
@@ -612,14 +632,14 @@
                 <parameter key="include_special_attributes" value="false"/>
               </operator>
               <operator activated="true" class="multiply" compatibility="9.3.001" expanded="true" height="103" name="Multiply" width="90" x="179" y="85"/>
-              <operator activated="true" breakpoints="after" class="model_simulator:quality_measures" compatibility="9.3.001" expanded="true" height="68" name="Quality Measures" width="90" x="313" y="136"/>
-              <operator activated="true" breakpoints="after" class="remove_useless_attributes" compatibility="9.3.001" expanded="true" height="82" name="Remove Useless Attributes" width="90" x="313" y="34">
+              <operator activated="true" class="model_simulator:quality_measures" compatibility="9.3.001" expanded="true" height="68" name="Quality Measures" width="90" x="313" y="136"/>
+              <operator activated="true" class="remove_useless_attributes" compatibility="9.3.001" expanded="true" height="82" name="Remove Useless Attributes" width="90" x="313" y="34">
                 <parameter key="numerical_min_deviation" value="0.5"/>
                 <parameter key="nominal_useless_above" value="0.95"/>
                 <parameter key="nominal_remove_id_like" value="false"/>
                 <parameter key="nominal_useless_below" value="0.05"/>
               </operator>
-              <operator activated="true" breakpoints="after" class="remove_correlated_attributes" compatibility="9.3.001" expanded="true" height="82" name="Remove Correlated Attributes" width="90" x="514" y="34">
+              <operator activated="true" class="remove_correlated_attributes" compatibility="9.3.001" expanded="true" height="82" name="Remove Correlated Attributes" width="90" x="514" y="34">
                 <parameter key="correlation" value="0.95"/>
                 <parameter key="filter_relation" value="greater"/>
                 <parameter key="attribute_order" value="original"/>
@@ -664,20 +684,19 @@
         </process>
       </operator>
       <operator activated="true" class="select_subprocess" compatibility="9.3.001" expanded="true" height="124" name="Data Processing" width="90" x="715" y="238">
-        <parameter key="select_which" value="2"/>
+        <parameter key="select_which" value="3"/>
         <process expanded="true">
-          <operator activated="true" class="split_data" compatibility="9.3.001" expanded="true" height="103" name="Split Data" width="90" x="45" y="34">
+          <operator activated="true" class="split_data" compatibility="9.3.001" expanded="true" height="82" name="Split Data" width="90" x="45" y="34">
             <enumeration key="partitions">
               <parameter key="ratio" value="0.6"/>
               <parameter key="ratio" value="0.4"/>
             </enumeration>
-            <parameter key="sampling_type" value="shuffled sampling"/>
+            <parameter key="sampling_type" value="stratified sampling"/>
             <parameter key="use_local_random_seed" value="true"/>
             <parameter key="local_random_seed" value="1992"/>
           </operator>
           <connect from_port="input 1" to_op="Split Data" to_port="example set"/>
-          <connect from_op="Split Data" from_port="partition 1" to_port="output 1"/>
-          <connect from_op="Split Data" from_port="partition 2" to_port="output 2"/>
+          <connect from_op="Split Data" from_port="partition 1" to_port="output 2"/>
           <portSpacing port="source_input 1" spacing="0"/>
           <portSpacing port="source_input 2" spacing="0"/>
           <portSpacing port="sink_output 1" spacing="0"/>
@@ -701,7 +720,7 @@
                   <parameter key="ratio" value="0.6"/>
                   <parameter key="ratio" value="0.4"/>
                 </enumeration>
-                <parameter key="sampling_type" value="shuffled sampling"/>
+                <parameter key="sampling_type" value="stratified sampling"/>
                 <parameter key="use_local_random_seed" value="true"/>
                 <parameter key="local_random_seed" value="2000"/>
               </operator>
@@ -737,11 +756,54 @@
             <parameter key="use_local_random_seed" value="false"/>
             <parameter key="local_random_seed" value="1992"/>
             <process expanded="true">
+              <operator activated="true" class="default_model" compatibility="9.3.001" expanded="true" height="82" name="Default Model" width="90" x="112" y="34">
+                <parameter key="method" value="mode"/>
+                <parameter key="constant" value="0.0"/>
+                <parameter key="attribute_name" value="Survived"/>
+              </operator>
+              <connect from_port="training" to_op="Default Model" to_port="training set"/>
+              <connect from_op="Default Model" from_port="model" to_port="model"/>
               <portSpacing port="source_training" spacing="0"/>
               <portSpacing port="sink_model" spacing="0"/>
               <portSpacing port="sink_through 1" spacing="0"/>
             </process>
             <process expanded="true">
+              <operator activated="true" class="apply_model" compatibility="9.3.001" expanded="true" height="82" name="Apply Model" width="90" x="45" y="34">
+                <list key="application_parameters"/>
+                <parameter key="create_view" value="false"/>
+              </operator>
+              <operator activated="true" class="performance_binominal_classification" compatibility="9.3.001" expanded="true" height="82" name="Performance" width="90" x="179" y="85">
+                <parameter key="manually_set_positive_class" value="true"/>
+                <parameter key="positive_class" value="Yes"/>
+                <parameter key="main_criterion" value="first"/>
+                <parameter key="accuracy" value="false"/>
+                <parameter key="classification_error" value="true"/>
+                <parameter key="kappa" value="false"/>
+                <parameter key="AUC (optimistic)" value="false"/>
+                <parameter key="AUC" value="false"/>
+                <parameter key="AUC (pessimistic)" value="false"/>
+                <parameter key="precision" value="false"/>
+                <parameter key="recall" value="false"/>
+                <parameter key="lift" value="false"/>
+                <parameter key="fallout" value="false"/>
+                <parameter key="f_measure" value="false"/>
+                <parameter key="false_positive" value="false"/>
+                <parameter key="false_negative" value="false"/>
+                <parameter key="true_positive" value="false"/>
+                <parameter key="true_negative" value="false"/>
+                <parameter key="sensitivity" value="false"/>
+                <parameter key="specificity" value="false"/>
+                <parameter key="youden" value="false"/>
+                <parameter key="positive_predictive_value" value="false"/>
+                <parameter key="negative_predictive_value" value="false"/>
+                <parameter key="psep" value="false"/>
+                <parameter key="skip_undefined_labels" value="true"/>
+                <parameter key="use_example_weights" value="true"/>
+              </operator>
+              <connect from_port="model" to_op="Apply Model" to_port="model"/>
+              <connect from_port="test set" to_op="Apply Model" to_port="unlabelled data"/>
+              <connect from_op="Apply Model" from_port="labelled data" to_op="Performance" to_port="labelled data"/>
+              <connect from_op="Performance" from_port="performance" to_port="averagable 1"/>
               <portSpacing port="source_model" spacing="0"/>
               <portSpacing port="source_test set" spacing="0"/>
               <portSpacing port="source_through 1" spacing="0"/>
@@ -767,11 +829,13 @@
       <connect from_op="Data Preprocessing" from_port="out 2" to_port="result 2"/>
       <connect from_op="Data Processing" from_port="output 1" to_port="result 1"/>
       <connect from_op="Data Processing" from_port="output 2" to_port="result 3"/>
+      <connect from_op="Data Processing" from_port="output 3" to_port="result 4"/>
       <portSpacing port="source_input 1" spacing="0"/>
       <portSpacing port="sink_result 1" spacing="0"/>
       <portSpacing port="sink_result 2" spacing="0"/>
       <portSpacing port="sink_result 3" spacing="0"/>
       <portSpacing port="sink_result 4" spacing="0"/>
+      <portSpacing port="sink_result 5" spacing="0"/>
       <description align="center" color="gray" colored="true" height="267" resized="true" width="162" x="84" y="77">DATA</description>
       <description align="center" color="gray" colored="true" height="269" resized="true" width="171" x="273" y="77">ATTRIBUTE</description>
       <description align="center" color="gray" colored="true" height="269" resized="true" width="195" x="463" y="76">DATA PRE-PROCESSING</description>
