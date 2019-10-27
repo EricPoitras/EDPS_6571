@@ -1171,7 +1171,8 @@
         <process expanded="true">
           <operator activated="true" class="concurrency:optimize_parameters_grid" compatibility="9.3.001" expanded="true" height="145" name="Optimize Parameters (Grid)" width="90" x="45" y="34">
             <list key="parameters">
-              <parameter key="Neural Net (3).training_cycles" value="[1.0;1000.0;99;linear]"/>
+              <parameter key="Neural Net (3).learning_rate" value="[4.9E-324;1.0;10;quadratic]"/>
+              <parameter key="Neural Net (3).local_random_seed" value="[1000.0;2000.0;10;linear]"/>
             </list>
             <parameter key="error_handling" value="fail on error"/>
             <parameter key="log_performance" value="true"/>
@@ -1226,9 +1227,9 @@
                     <process expanded="true">
                       <operator activated="true" class="neural_net" compatibility="9.3.001" expanded="true" height="82" name="Neural Net (3)" width="90" x="45" y="34">
                         <list key="hidden_layers"/>
-                        <parameter key="training_cycles" value="1000"/>
-                        <parameter key="learning_rate" value="0.01"/>
-                        <parameter key="momentum" value="0.1"/>
+                        <parameter key="training_cycles" value="200"/>
+                        <parameter key="learning_rate" value="1.0"/>
+                        <parameter key="momentum" value="0.9"/>
                         <parameter key="decay" value="false"/>
                         <parameter key="shuffle" value="true"/>
                         <parameter key="normalize" value="false"/>
