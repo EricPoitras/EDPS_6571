@@ -308,18 +308,18 @@ var options = {
 								fontFamily: "Poppins"
 							},
 							total: {
-								show: true,
+								show: false,
 								label: "Prediction",
 								color: "#8c442a",
-								formatter: function(w) {
+								formatter: function(val) {
 									// By default this function returns the average of all series. The below is just an example to show the use of custom formatter function
-									return "Died";
+									//return "Died";
 								}
 							}
 						}
 					}
 				},
-				series: [20, 80],
+				series: [50, 50],
 				labels: ["Survived", "Died"],
 				legend: {
 					show: true,
@@ -328,6 +328,15 @@ var options = {
 					position: "bottom",
 					labels: {
 						useSeriesColors: true
+					},
+					markers: {
+						size: 0
+					},
+					formatter: function(seriesName, opts) {
+						return seriesName + ": " + opts.w.globals.series[opts.seriesIndex] + "%";
+					},
+					itemMargin: {
+						horizontal: 1
 					}
 				}
 			} // End of Radial Bars Chart
