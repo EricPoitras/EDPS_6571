@@ -18,7 +18,7 @@ btn_settings.addEventListener("click", function() {
 cont_sidebar.addEventListener("dblclick", function() {
 	cont_sidebar.classList.toggle("active");
 });
-dropdown_model.addEventListener("click", function() {
+dropdown_model.addEventListener("change", function() {
 	router(dropdown_model.value);
 });
 // These event listeners are assigned to each variable or icon. The event listened for includes a click or double click, which triggers the following block of code using a method called toggle to either add or remove a class value
